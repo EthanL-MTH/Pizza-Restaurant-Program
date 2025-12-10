@@ -32,6 +32,7 @@ def sizePizzaFind(sizePizza):
             break
         else:
             print("Invalid size of pizza")
+            print("-----------------------------------------------------------------------------------")
             sizePizza = str(input(f"Please re-enter the size of the pizza (Small, Medium or Large): "))
     return pricePizza
 
@@ -59,6 +60,7 @@ def deliveryCostCalc(deliveryYorN):
             break
         else:
             print("Invalid data")
+            print("-----------------------------------------------------------------------------------")
             deliveryYorN = str(input("Does the customer require delivery: "))
     return deliveryCost
 
@@ -69,6 +71,7 @@ def validatePizzaQuantity(pizzaQuantity):
             break
         else:
             print("Maximum pizzas allowed is six, try again.")
+            print("-----------------------------------------------------------------------------------")
             pizzaQuantity = input("Please re-enter the number of pizzas: ")
     return pizzaQuantity
 
@@ -78,11 +81,11 @@ def toppingFinder(toppingYorN):
         if toppingYorN.lower() == "yes":
             toppingNum = input(f"Please enter the amount of extra toppings on the pizza: ")
             toppingCost = toppingNumber(toppingNum)
-            print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("-----------------------------------------------------------------------------------")
             break 
         elif toppingYorN.lower() == "no":
             print("Extra topping cost will be set to 0.")
-            print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("-----------------------------------------------------------------------------------")
             toppingCost = 0
             break
         else: 
@@ -92,18 +95,19 @@ def toppingFinder(toppingYorN):
 
 #Main programme
 def main():
-  #Customer details which the user inputs
+    #Customer details which the user inputs
+    print("-----------------------------------------------------------------------------------")
     name = str(input("Input is the customer's name: "))
     address = str(input("Input the customer's address: "))
     phoneNum = int(input("Input the customer's phone number: "))
-    print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-  #Puts pizza quantity into the function to validate it
-    pizzaQuantity = input("Enter amount of pizzas ordered (1-6): ")
+    print("-----------------------------------------------------------------------------------")
+    #Puts pizza quantity into the function to validate it
+    pizzaQuantity = int(input("Enter amount of pizzas ordered (1-6): "))
+    print("-----------------------------------------------------------------------------------")
     pizzaQuantity = validatePizzaQuantity(pizzaQuantity)
-    print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------")
-
+    print("-----------------------------------------------------------------------------------")
     totalCost = 0
-  #These two lists are used to store the data to then be put into the customers bill
+    #These two lists are used to store the data to then be put into the customers bill
     costOfPizzas = []
     sizeOfPizzas = []
     i = 1
@@ -133,7 +137,9 @@ def main():
     for q in range(len(costOfPizzas)):
         print(f"For the {q+1} {sizeOfPizzas[q].lower()} pizza the cost is £{costOfPizzas[q]:.2f}.")
         q =+ 1
+    print("-----------------------------------------------------------------------------------")
     print(f"The delivery charge is £{deliveryCost:.2f}.")
+    print("-----------------------------------------------------------------------------------")
     print(f"The total cost is £{totalCost:.2f}.")
     
   #If the cost is above £20 the customer gets a 10% discount on their total cost, which is applied after
@@ -141,6 +147,7 @@ def main():
         discountCost = totalCost*DISCOUNT
         finalCost = totalCost - discountCost
         print(f"Since the customer spent over £20 they qualify for a 10% discount.")
+        print("-----------------------------------------------------------------------------------")
         print(f"The final cost will now be £{finalCost:.2f}.")
 
 #Initiating the main programme starting my code
